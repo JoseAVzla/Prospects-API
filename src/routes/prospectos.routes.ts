@@ -1,5 +1,5 @@
 import * as Router from 'express';
-import ProspectosController from './prospectos.controller';
+import ProspectosController from '../controllers/prospectos.controller';
 const router = Router();
 
 router.get('/', ProspectosController.getAllProspects);
@@ -11,9 +11,5 @@ router.post('/save', ProspectosController.saveProspect);
 router.patch('/:id', ProspectosController.updateProspect);
 
 router.delete('/:id', ProspectosController.deleteProspect);
-
-router.get('/test', (req, res) => {
-    res.send('Todo fine!!!');
-});
 
 export default router;
