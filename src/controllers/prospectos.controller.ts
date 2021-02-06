@@ -6,14 +6,14 @@ var multer = require("multer");
 
 export class ProspectosController {
   static deleteProspect = async (req: Request, res: Response) => {
-    const { id } = req.params;
+    const { id } = req.body;
     const prospectoRepository = getRepository(ProspectEntity);
     let prospect = ProspectEntity;
-
+console.log(req.body)
     try {
       const prospect = await prospectoRepository.findOneOrFail(id);
     } catch (e) {
-      res.status(404).json({ message: "No encontrado" });
+      res.status(404).json({ message: "No encontrado delete" });
     }
     prospectoRepository.delete(id);
     res.status(201).json({ message: "Prospecto eliminado" });
@@ -21,10 +21,9 @@ export class ProspectosController {
 
   static updateProspect = async (req: Request, res: Response) => {
     let prospecto;
-    const { id } = req.params;
-    const { estatus, observacion } = req.body;
+    const { id, estatus, observacion } = req.body;
+    console.log(req.body)
     const prospectoRepository = getRepository(ProspectEntity);
-
     try {
       prospecto = await prospectoRepository.findOneOrFail(id);
       prospecto.estatus = estatus;
@@ -51,7 +50,6 @@ export class ProspectosController {
   };
 
   static saveProspect = async (req: Request, res: Response) => {
-    console.log("la data es:", req.body);
     interface MulterRequest extends Request {
       file: any;
     }
@@ -65,10 +63,8 @@ export class ProspectosController {
       cp,
       telefono,
       rfc,
-      documento,
-      observacion
+      documento
     } = req.body;
-
     //const documento1 = (req as MulterRequest).file;
     //const filefine = documento1.originalname.replace(/\s/g, "-");
     const prospect = new ProspectEntity();
@@ -84,9 +80,7 @@ export class ProspectosController {
     prospect.rfc = rfc;
     prospect.documento = documento;
     prospect.estatus = "E";
-    prospect.observacion = observacion;
-
-    console.log(prospect);
+    prospect.observacion = "";
 
     // Validación
     const errors = await validate(prospect, {
@@ -107,6 +101,7 @@ export class ProspectosController {
   };
 
   static getAllProspects = async (req: Request, res: Response) => {
+    console.log(req.body)
     const prospectRepository = getRepository(ProspectEntity);
     try {
       const prospectos = await prospectRepository.find();
@@ -117,7 +112,8 @@ export class ProspectosController {
   };
 
   static getProspectById = async (req: Request, res: Response) => {
-    const { id } = req.params;
+    const id = req.query.id;
+    console.log(req.query.id)
     const prospectoRepository = getRepository(ProspectEntity);
 
     try {

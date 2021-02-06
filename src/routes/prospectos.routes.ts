@@ -1,15 +1,18 @@
 import * as Router from 'express';
 import ProspectosController from '../controllers/prospectos.controller';
+
+
+
 const router = Router();
 
 router.get('/', ProspectosController.getAllProspects);
 
-router.get('/:id', ProspectosController.getProspectById);
+router.get('/find-by-id', ProspectosController.getProspectById);
 
 router.post('/save', ProspectosController.saveProspect);
 
-router.patch('/:id', ProspectosController.updateProspect);
+router.patch('/update', ProspectosController.updateProspect);
 
-router.delete('/:id', ProspectosController.deleteProspect);
+router.delete('/delete', ProspectosController.deleteProspect);
 
 export default router;
