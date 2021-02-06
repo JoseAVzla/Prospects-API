@@ -109,11 +109,10 @@ export class ProspectosController {
   };
 
   static getProspectById = async (req: Request, res: Response) => {
-    const id = req.query.id;
     const prospectoRepository = getRepository(ProspectEntity);
 
     try {
-      const prospect = await prospectoRepository.findOneOrFail(id);
+      const prospect = await prospectoRepository.findOneOrFail(Number(req.query.id));
       res.send(prospect);
     } catch (e) {
       res.status(404).json({ message: "No encontrado" });

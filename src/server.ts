@@ -1,4 +1,3 @@
-import "reflect-metadata";
 import * as express from "express";
 import { createConnection } from "typeorm";
 import * as cors from "cors";

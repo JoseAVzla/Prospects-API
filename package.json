@@ -5,7 +5,8 @@
   "main": "server.ts",
   "scripts": {
     "tsc": "tsc",
-    "dev": "set debug=* && ts-node-dev --respawn --transpile-only ./src/server.ts"
+    "dev": "set debug=* && ts-node-dev --respawn --transpile-only ./src/server.ts",
+    "start": "ts-node ./src/server.ts"
   },
   "keywords": [
     "Api",
