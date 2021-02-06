@@ -9,7 +9,6 @@ export class ProspectosController {
     const { id } = req.body;
     const prospectoRepository = getRepository(ProspectEntity);
     let prospect = ProspectEntity;
-console.log(req.body)
     try {
       const prospect = await prospectoRepository.findOneOrFail(id);
     } catch (e) {
@@ -22,7 +21,6 @@ console.log(req.body)
   static updateProspect = async (req: Request, res: Response) => {
     let prospecto;
     const { id, estatus, observacion } = req.body;
-    console.log(req.body)
     const prospectoRepository = getRepository(ProspectEntity);
     try {
       prospecto = await prospectoRepository.findOneOrFail(id);
@@ -101,7 +99,6 @@ console.log(req.body)
   };
 
   static getAllProspects = async (req: Request, res: Response) => {
-    console.log(req.body)
     const prospectRepository = getRepository(ProspectEntity);
     try {
       const prospectos = await prospectRepository.find();
@@ -113,7 +110,6 @@ console.log(req.body)
 
   static getProspectById = async (req: Request, res: Response) => {
     const id = req.query.id;
-    console.log(req.query.id)
     const prospectoRepository = getRepository(ProspectEntity);
 
     try {
