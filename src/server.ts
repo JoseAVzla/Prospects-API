@@ -2,7 +2,7 @@ import * as express from "express";
 import { createConnection } from "typeorm";
 import * as cors from "cors";
 import routes from "./routes/prospectos.routes";
-const port = 3001;
+const port =  process.env.port || 3001;
 
 createConnection()
   .then(() => {
