@@ -1,10 +1,9 @@
 {
     "type": "mysql",
-    "host": "localhost",
-    "port": 3306,
-    "username": "root",
-    "password": "Loska256",
-    "database": "prospectsapi",
+    "host": "us-cdbr-east-03.cleardb.com",
+    "username": "b8c495b3e4bc63",
+    "password": "4e7e3068",
+    "database": "heroku_ababe6c332a4c38",
     "synchronize": true,
     "logging": false,
     "entities": [
