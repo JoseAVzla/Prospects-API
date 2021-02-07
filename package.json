@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Api en nodejs para gestion de prospectos.",
   "main": "server.ts",
+  "type": "module",
   "scripts": {
     "tsc": "tsc",
     "dev": "set debug=* && ts-node-dev --respawn --transpile-only ./src/server.ts",
