@@ -52,12 +52,4 @@ export class ProspectEntity extends BaseEntity{
 
     @Column()
     observacion: string;
-
-    @Column()
-    @CreateDateColumn()
-    createdAt: Date;
-
-    @Column()
-    @UpdateDateColumn()
-    updatedAt: Date;
 }

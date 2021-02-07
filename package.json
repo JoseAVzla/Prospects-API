@@ -7,7 +7,7 @@
   "scripts": {
     "tsc": "tsc",
     "dev": "set debug=* && ts-node-dev --respawn --transpile-only ./src/server.ts",
-    "start": " tsc && node ./dist/server.ts",
+    "start": " set debug=* && ts-node-dev --respawn --transpile-only ./src/server.ts",
     "postinstall": "npm run tsc"
   },
   "engines": { "node": "14.15.0" },
